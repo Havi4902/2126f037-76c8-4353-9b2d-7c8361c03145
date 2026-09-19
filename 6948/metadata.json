@@ -1,0 +1,7 @@
+{
+  "issueLink": "https://github.com/holoviz/holoviews/issues/6948",
+  "prLink": "https://github.com/holoviz/holoviews/pull/6971",
+  "artifactType": "gif",
+  "justification": "The Layout with shared_axes=True at base.sha fails to synchronize categorical x-axes between bar chart subplots — panning one chart does not update the other, making comparative visual analysis impossible when axes should be linked.",
+  "piiAck": true
+}
