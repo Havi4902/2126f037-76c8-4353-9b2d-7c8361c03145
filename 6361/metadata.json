@@ -1,7 +1,0 @@
-{
-  "issueLink": "https://github.com/holoviz/holoviews/issues/6361",
-  "prLink": "https://github.com/holoviz/holoviews/pull/6707",
-  "artifactType": "gif",
-  "justification": "The datashade operation with interpolation='nearest' at base.sha raises a ValueError rejecting the interpolation method, preventing the rasterized image from rendering — the expected pixelated datashaded plot is replaced by a traceback.",
-  "piiAck": true
-}

@@ -1,13 +1,13 @@
 FROM python:3.10.12-bookworm
 
-ARG BASE_COMMIT=385595122d1d554a77e533bd5c3fcadcfcb43d43
+ARG BASE_COMMIT=bd6c739f71fc2aa95583cb7b5e49fbc295514f57
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
 ENV SETUPTOOLS_SCM_PRETEND_VERSION=1.20.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl ca-certificates git patch \
+    curl ca-certificates \
  && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL "https://codeload.github.com/holoviz/holoviews/tar.gz/${BASE_COMMIT}" \
@@ -33,4 +33,4 @@ def pytest_unconfigure(config):\n\
     _jf_sys.stdout.flush(); _jf_sys.stderr.flush()\n\
     _jf_os._exit(_JF_EXIT["status"])\n' >> /app/conftest.py
 
-RUN python -m pytest holoviews/tests/plotting/bokeh/test_heatmapplot.py -v -o addopts=
+RUN python -m pytest holoviews/tests/operation/test_operation.py -v -o addopts= -k "decimate"

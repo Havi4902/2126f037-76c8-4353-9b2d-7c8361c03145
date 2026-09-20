@@ -1,13 +1,13 @@
 FROM python:3.10.12-bookworm
 
-ARG BASE_COMMIT=2698fe5022dd038b6eba4deb01a7fe09271b7c3c
+ARG BASE_COMMIT=388b3378aff03f93663df5138d6a6f3a164167eb
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
 ENV SETUPTOOLS_SCM_PRETEND_VERSION=1.20.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl ca-certificates git patch \
+    curl ca-certificates \
  && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL "https://codeload.github.com/holoviz/holoviews/tar.gz/${BASE_COMMIT}" \
@@ -20,7 +20,7 @@ RUN curl -fsSL "https://codeload.github.com/holoviz/holoviews/tar.gz/${BASE_COMM
 WORKDIR /app
 
 RUN pip install --no-cache-dir -e ".[recommended]" \
- && pip install --no-cache-dir pytest pytest-rerunfailures pytest-asyncio coverage datashader dask[dataframe] scipy
+ && pip install --no-cache-dir pytest pytest-rerunfailures pytest-asyncio coverage polars
 
 # Conftest exit hook v2 (D11)
 RUN printf 'import os as _jf_os, sys as _jf_sys, pytest as _jf_pytest\n\
@@ -33,4 +33,4 @@ def pytest_unconfigure(config):\n\
     _jf_sys.stdout.flush(); _jf_sys.stderr.flush()\n\
     _jf_os._exit(_JF_EXIT["status"])\n' >> /app/conftest.py
 
-RUN python -m pytest holoviews/tests/operation/test_datashader.py -v -o addopts=
+RUN python -m pytest holoviews/tests/plotting/bokeh/test_barplot.py -v -o addopts= -k "test_bars_continuous_datetime_stacked"

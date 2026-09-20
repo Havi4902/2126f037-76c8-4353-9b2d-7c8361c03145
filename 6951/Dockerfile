@@ -1,13 +1,13 @@
 FROM python:3.10.12-bookworm
 
-ARG BASE_COMMIT=8ed4a09ecfd6e9060a3fe8a2d16b46e3c1a7c810
+ARG BASE_COMMIT=3441f68a7b9584e74e318aafd66f03edff0cf5a8
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
 ENV SETUPTOOLS_SCM_PRETEND_VERSION=1.20.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl ca-certificates git patch \
+    curl ca-certificates \
  && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL "https://codeload.github.com/holoviz/holoviews/tar.gz/${BASE_COMMIT}" \
@@ -33,4 +33,4 @@ def pytest_unconfigure(config):\n\
     _jf_sys.stdout.flush(); _jf_sys.stderr.flush()\n\
     _jf_os._exit(_JF_EXIT["status"])\n' >> /app/conftest.py
 
-RUN python -m pytest holoviews/tests/plotting/bokeh/test_elementplot.py holoviews/tests/plotting/bokeh/test_layoutplot.py -v -o addopts=
+RUN python -m pytest holoviews/tests/plotting/bokeh/test_graphplot.py::TestBokehTriMeshPlot::test_trimesh_op_edge_color_linear_mean_node -v -o addopts=

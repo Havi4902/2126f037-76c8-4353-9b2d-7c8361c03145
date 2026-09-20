@@ -1,7 +1,0 @@
-{
-  "issueLink": "https://github.com/holoviz/holoviews/issues/6876",
-  "prLink": "https://github.com/holoviz/holoviews/pull/6877",
-  "artifactType": "gif",
-  "justification": "The HeatMap with a datetime x-axis at base.sha raises a UFuncBinaryResolutionError from numpy during rendering, preventing the heatmap chart from displaying entirely — the output cell shows only a traceback instead of the expected visualization.",
-  "piiAck": true
-}

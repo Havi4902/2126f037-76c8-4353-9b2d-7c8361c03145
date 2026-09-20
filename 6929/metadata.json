@@ -1,0 +1,7 @@
+{
+  "issueLink": "https://github.com/holoviz/holoviews/issues/6929",
+  "prLink": "https://github.com/holoviz/holoviews/pull/6930",
+  "artifactType": "video",
+  "justification": "The holoviews Bars element at base.sha raises a TypeError when stacking polars-backed data with a datetime axis, because the bokeh chart plotting code calls an incompatible operation on the narwhals datetime column during stacked bar computation.",
+  "piiAck": true
+}
