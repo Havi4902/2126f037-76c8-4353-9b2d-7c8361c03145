@@ -1,7 +1,0 @@
-{
-  "issueLink": "https://github.com/holoviz/holoviews/issues/6660",
-  "prLink": "https://github.com/holoviz/holoviews/pull/6661",
-  "artifactType": "video",
-  "justification": "The holoviews decimate operation at base.sha produces an empty plot and raises a UFuncNoLoopError when all y-values are identical (zero standard deviation), because the decimate select call fails when start and end indices are the same value.",
-  "piiAck": true
-}

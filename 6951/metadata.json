@@ -1,7 +1,0 @@
-{
-  "issueLink": "https://github.com/holoviz/holoviews/issues/6951",
-  "prLink": "https://github.com/holoviz/holoviews/pull/6965",
-  "artifactType": "video",
-  "justification": "The holoviews TriMesh at base.sha raises a MergeError when edge_color is set and the node Dataset has a custom vdim name other than the hard-coded default, causing connect_tri_edges_pd to fail on the merge operation.",
-  "piiAck": true
-}

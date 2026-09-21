@@ -1,0 +1,7 @@
+{
+  "issueLink": "https://github.com/holoviz/holoviews/issues/6934",
+  "prLink": "https://github.com/holoviz/holoviews/pull/6941",
+  "artifactType": "video",
+  "justification": "The holoviews plotly scatter at base.sha raises a NameError when rendering scatter plots with certain color configurations because the streams subscriber cleanup for functools.partial objects fails, leaving the plot in a broken state.",
+  "piiAck": true
+}
