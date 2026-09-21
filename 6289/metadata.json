@@ -1,0 +1,7 @@
+{
+  "issueLink": "https://github.com/holoviz/holoviews/issues/6289",
+  "prLink": "https://github.com/holoviz/holoviews/pull/6290",
+  "artifactType": "video",
+  "justification": "The holoviews is_nan utility at base.sha does not handle pandas NA values, causing is_nan(pd.NA) to return False instead of True, which propagates incorrect nan-detection when holoviews processes DataFrames with nullable dtypes.",
+  "piiAck": true
+}

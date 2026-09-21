@@ -1,10 +1,10 @@
 FROM python:3.10.12-bookworm
 
-ARG BASE_COMMIT=7023beb996440ace9cc81597c38a0d0a5443c77f
+ARG BASE_COMMIT=e243fe080963956d4a1bc87aa6ccfad676cea671
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
-ENV SETUPTOOLS_SCM_PRETEND_VERSION=1.20.0
+ENV SETUPTOOLS_SCM_PRETEND_VERSION=1.19.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl ca-certificates git patch \
@@ -33,4 +33,4 @@ def pytest_unconfigure(config):\n\
     _jf_sys.stdout.flush(); _jf_sys.stderr.flush()\n\
     _jf_os._exit(_JF_EXIT["status"])\n' >> /app/conftest.py
 
-RUN python -m pytest holoviews/tests/plotting/bokeh/test_spreadplot.py -v -o addopts= -k "test_spread_datetime_x or test_spread_stream_data"
+RUN python -m pytest holoviews/tests/core/test_utils.py -v -o addopts= -k "test_is_nan or test_deephash_list_equality"
