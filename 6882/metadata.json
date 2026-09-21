@@ -1,0 +1,7 @@
+{
+  "issueLink": "https://github.com/holoviz/holoviews/issues/6882",
+  "prLink": "https://github.com/holoviz/holoviews/pull/6883",
+  "artifactType": "video",
+  "justification": "The holoviews Spread element at base.sha raises a JavaScript maximum call stack size exceeded error when rendering with the bokeh backend and a large number of points (>=18,000), preventing the chart from displaying instead of rendering correctly.",
+  "piiAck": true
+}

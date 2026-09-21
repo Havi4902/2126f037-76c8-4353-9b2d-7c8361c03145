@@ -1,0 +1,7 @@
+{
+  "issueLink": "https://github.com/holoviz/holoviews/issues/6894",
+  "prLink": "https://github.com/holoviz/holoviews/pull/6902",
+  "artifactType": "video",
+  "justification": "The holoviews Stream.trigger at base.sha silently cancels all remaining subscribers when any earlier subscriber raises an exception, causing subsequent stream updates to be lost without any error surfaced to the user.",
+  "piiAck": true
+}
